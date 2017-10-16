@@ -1,6 +1,6 @@
 <?php
 
-namespace Drutiny\Check\D7;
+namespace Drutiny\Plugin\Drupal7\Check;
 
 use Drutiny\Check\D8\User1 as D8User1;
 use Drutiny\Sandbox\Sandbox;

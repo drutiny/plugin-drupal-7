@@ -1,6 +1,6 @@
 <?php
 
-namespace Drutiny\Check\D7;
+namespace Drutiny\Plugin\Drupal7\Check;
 
 use Drutiny\Check\Check;
 use Drutiny\Sandbox\Sandbox;
