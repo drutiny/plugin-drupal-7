@@ -1,5 +1,6 @@
 title: Overlay module disabled
-class: \Drutiny\Check\D7\ModuleDisabled
+name: Drupal-7:OverlayModuleDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
 tags:
   - Drupal 7
   - Best Practice

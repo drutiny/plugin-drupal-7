@@ -1,20 +1,20 @@
 <?php
 
-namespace Drutiny\Plugin\Drupal7\Check;
+namespace Drutiny\Plugin\Drupal7\Audit;
 
-use Drutiny\Check\Check;
+use Drutiny\Audit;
 use Drutiny\Sandbox\Sandbox;
 use Symfony\Component\Yaml\Yaml;
 
 /**
  * Duplicate modules.
  */
-class DuplicateModules extends Check {
+class DuplicateModules extends Audit {
 
   /**
    * @inheritdoc
    */
-  public function check(Sandbox $sandbox) {
+  public function audit(Sandbox $sandbox) {
     $config = $sandbox->drush(['format' => 'json'])
       ->status();
 

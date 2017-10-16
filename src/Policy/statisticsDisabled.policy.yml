@@ -1,5 +1,6 @@
 title: Statistics
-class: \Drutiny\Check\D7\ModuleDisabled
+name: Drupal-7:StatisticsModuleDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
 tags:
   - Drupal 7
   - Best Practice

@@ -1,5 +1,6 @@
 title: PHP
-class: \Drutiny\Check\D7\ModuleDisabled
+name: Drupal-7:PhpModuleDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
 tags:
   - Drupal 7
   - Best Practice

@@ -1,5 +1,6 @@
 title: Update
-class: \Drutiny\Check\D7\ModuleDisabled
+name: Drupal-7:UpdateModuleDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
 tags:
   - Drupal 7
   - Performance

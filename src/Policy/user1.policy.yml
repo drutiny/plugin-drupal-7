@@ -1,5 +1,6 @@
-title: "User #1"
-class: \Drutiny\Check\D7\User1
+title: "User #1 Locked Down"
+name: Drupal-7:User1LockDown
+class: \Drutiny\Plugin\Drupal7\Audit\User1
 tags:
   - Drupal 7
   - Best Practice

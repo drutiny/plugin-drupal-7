@@ -1,5 +1,6 @@
 title: Duplicate modules
-class: \Drutiny\Plugin\Drupal7\Check\DuplicateModules
+name: Drupal-7:NoDuplicateModules
+class: \Drutiny\Plugin\Drupal7\Audit\DuplicateModules
 tags:
   - Drupal 7
   - Sanity

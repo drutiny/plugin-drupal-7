@@ -1,5 +1,6 @@
 title: BlackList Permissions
-class: \Drutiny\Check\D7\BlacklistPermissions
+name: Drupal-7:BlackListPermissions
+class: \Drutiny\Plugin\Drupal7\Audit\BlacklistPermissions
 tags:
   - Drupal 7
   - Sanity

@@ -1,5 +1,6 @@
 title: Simpletest
-class: \Drutiny\Check\D7\ModuleDisabled
+name: Drupal-7:SimpletestModuleDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
 tags:
   - Drupal 7
   - Best Practice

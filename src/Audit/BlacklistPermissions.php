@@ -1,19 +1,19 @@
 <?php
 
-namespace Drutiny\Plugin\Drupal7\Check;
+namespace Drutiny\Plugin\Drupal7\Audit;
 
-use Drutiny\Check\Check;
+use Drutiny\Audit;
 use Drutiny\Sandbox\Sandbox;
 
 /**
  * BlackList Permissions
  */
-class BlacklistPermissions extends Check {
+class BlacklistPermissions extends Audit {
 
   /**
    *
    */
-  public function check(Sandbox $sandbox) {
+  public function audit(Sandbox $sandbox) {
     $perms = $sandbox->getParameter('permissions');
 
     if (empty($perms)) {
