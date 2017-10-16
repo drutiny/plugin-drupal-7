@@ -18,8 +18,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Drutiny\\Plugin\\Drupal7": "src/",
-            "DrutinyTests\\Plugin\\Drupal7": "tests/src/"
+            "Drutiny\\Plugin\\Drupal7\\": "src/",
+            "DrutinyTests\\Plugin\\Drupal7\\": "tests/src/"
         }
     },
     "bin": ["bin/drutiny"],
