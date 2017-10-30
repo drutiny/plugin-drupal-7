@@ -30,7 +30,7 @@ class VariableCompare extends Audit {
 
     $sandbox->setParameter('reading', $reading);
 
-    $comp_type = $sandbox->getParameter('comp_type', '===');
+    $comp_type = $sandbox->getParameter('comp_type', '==');
     $sandbox->logger()->info('Comparative config values: ' . var_export([
       'reading' => $reading,
       'value' => $value,
@@ -59,13 +59,15 @@ class VariableCompare extends Audit {
       case 'matches':
       case '~':
         return strpos($reading, $value) !== FALSE;
-      case 'equal':
-      case '==':
-        return $value == $reading;
       case 'identical':
       case '===':
-      default:
         return $value === $reading;
+      case 'equal':
+      case '==':
+      default:
+        return $value == $reading;
+
+
     }
   }
 
