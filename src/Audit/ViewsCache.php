@@ -6,25 +6,30 @@ use Drutiny\Audit;
 use Drutiny\Sandbox\Sandbox;
 
 /**
- * Views Pagination
+ * Views Cache
  */
-class ViewsPagination extends Audit {
+class ViewsCache extends Audit {
 
   /**
    *
    */
   public function audit(Sandbox $sandbox) {
-    $views = $sandbox->drush()->evaluate(function ($limit) {
+    $views = $sandbox->drush()->evaluate(function () {
       $bad_views = [];
       foreach (views_get_all_views() as $view_name => $view) {
         foreach ($view->display as $display_name => $display) {
-          if ($display->display_options['pager']['options']['items_per_page'] > $limit) {
-            $bad_views[] = "$view_name:$display_name contains " .  $display->display_options['pager']['options']['items_per_page'] . " per page.";
+          if (empty($display->display_options['cache'])) {
+            $bad_views[] = "$view_name:$display_name";
+            continue;
+          }
+          $cache = $display->display_options['cache'];
+          if ($cache['type'] == 'none') {
+            $bad_views[] = "$view_name:$display_name";
           }
         }
       }
       return $bad_views;
-    }, ['limit' => $sandbox->getParameter('limit', 60)]);
+    });
 
     if (empty($views)) {
       return TRUE;
