@@ -22,3 +22,7 @@ parameters:
     type: bool
     description: The value of the variable
     default: 0
+  default:
+    type: bool
+    description: The default value of the variable
+    default: 0

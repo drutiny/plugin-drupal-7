@@ -11,8 +11,6 @@ use Drutiny\Driver\DrushFormatException;
  */
 class VariableCompare extends Audit {
 
-  const NO_VARIABLE = 'No matching variable found.';
-
   /**
    * @inheritDoc
    */
@@ -24,22 +22,21 @@ class VariableCompare extends Audit {
       $vars = $sandbox->drush([
         'format' => 'json'
         ])->variableGet($key);
+      $reading = $vars[$key];
     }
     catch (DrushFormatException $e) {
       $sandbox->setParameter('exception', $e->getMessage());
-      // If Drush could not find the variable and $value is Falsey and the
-      // comparison is equals then we can still returned a successful outcome.
-      if (strpos($e->getOutput(), self::NO_VARIABLE) !== FALSE && $value == FALSE && $sandbox->getParameter('comp_type', '==') == '==') {
-        return TRUE;
-      }
-      return FALSE;
-    }
-    catch (\Exception $e) {
-      $sandbox->setParameter('exception', $e->getMessage());
-      return FALSE;
-    }
 
-    $reading = $vars[$key];
+      $default_value = $sandbox->getParameter('default', 'no-value-provided');
+
+      // If no default value was provided then we can not provide an accruate
+      // outcome based on the absense of a successful drush command.
+      if ($default_value === 'no-value-provided') {
+        return FALSE;
+      }
+
+      $reading = $default_value;
+    }
 
     $sandbox->setParameter('reading', $reading);
 
