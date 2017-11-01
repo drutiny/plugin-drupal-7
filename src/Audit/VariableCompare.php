@@ -4,11 +4,14 @@ namespace Drutiny\Plugin\Drupal7\Audit;
 
 use Drutiny\Audit;
 use Drutiny\Sandbox\Sandbox;
+use Drutiny\Driver\DrushFormatException;
 
 /**
  * Check a configuration is set correctly.
  */
 class VariableCompare extends Audit {
+
+  const NO_VARIABLE = 'No matching variable found.';
 
   /**
    * @inheritDoc
@@ -22,7 +25,17 @@ class VariableCompare extends Audit {
         'format' => 'json'
         ])->variableGet($key);
     }
+    catch (DrushFormatException $e) {
+      $sandbox->setParameter('exception', $e->getMessage());
+      // If Drush could not find the variable and $value is Falsey and the
+      // comparison is equals then we can still returned a successful outcome.
+      if (strpos($e->getOutput(), self::NO_VARIABLE) !== FALSE && $value == FALSE && $sandbox->getParameter('comp_type', '==') == '==') {
+        return TRUE;
+      }
+      return FALSE;
+    }
     catch (\Exception $e) {
+      $sandbox->setParameter('exception', $e->getMessage());
       return FALSE;
     }
 
@@ -66,8 +79,6 @@ class VariableCompare extends Audit {
       case '==':
       default:
         return $value == $reading;
-
-
     }
   }
 
