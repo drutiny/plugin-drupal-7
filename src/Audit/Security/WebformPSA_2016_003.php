@@ -31,12 +31,14 @@ class WebformPSA_2016_003 extends ModuleEnabled {
     // Look for NFL uploads.
     // See https://www.drupal.org/forum/newsletters/security-public-service-announcements/2016-10-10/drupal-file-upload-by-anonymous
     $output = $sandbox->drush()->sqlq("SELECT filename FROM {file_managed} WHERE UPPER(filename) LIKE '%NFL%' AND status = 0;");
-    $output = array_filter($output);
+
     if (empty($output)) {
       $number_of_silly_uploads = 0;
       $sandbox->setParameter('files', '');
     }
     else {
+      $output = explode(PHP_EOL, $output);
+      $output = array_filter($output);
       $number_of_silly_uploads = count($output);
 
       // Format with markdown code backticks.
@@ -48,7 +50,7 @@ class WebformPSA_2016_003 extends ModuleEnabled {
     }
     $sandbox->setParameter('number_of_silly_uploads', $number_of_silly_uploads);
     $sandbox->setParameter('plural', $number_of_silly_uploads > 1 ? 's' : '');
-    $$sandbox->setParameter('prefix', $number_of_silly_uploads > 1 ? 'are' : 'is');
+    $sandbox->setParameter('prefix', $number_of_silly_uploads > 1 ? 'are' : 'is');
 
     return $number_of_silly_uploads === 0;
   }
