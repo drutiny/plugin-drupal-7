@@ -21,7 +21,11 @@ class VariableCompare extends Audit {
     try {
       $vars = $sandbox->drush([
         'format' => 'json'
-        ])->variableGet($key);
+        ])->variableGet();
+
+      if (!isset($vars[$key])) {
+        throw new DrushFormatException(__CLASS__ . ": $key is not a set variable.", '');
+      }
       $reading = $vars[$key];
     }
     catch (DrushFormatException $e) {
