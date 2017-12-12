@@ -9,15 +9,15 @@ description: |
   attempting to find a module or theme in the file system, but either cannot
   find it or does not find it in the expected place.
 remediation: |
-  Either put the modules back in the codebase, or alternatively run this check
-  with auto-remediation enabled to manually remove them from the database.
+  Put the modules back in the codebase.
   *Warning* - many modules do important cleanup tasks during the uninstall
   process, and this solution will result in that being skipped.
   If at all possible, restore the missing module and uninstall it using the
   regular uninstall process.
 success: No missing modules.
 failure: |
-  Missing modules were found
+  Missing modules were found:
+
     {{# messages}}
       - {{ . }}
     {{/messages}}
