@@ -12,10 +12,9 @@ use Drutiny\RemediableInterface;
 class ModuleDisabled extends Audit implements RemediableInterface {
 
   /**
-   *
+   * @inheritdoc
    */
-  public function audit(Sandbox $sandbox)
-  {
+  public function audit(Sandbox $sandbox) {
 
     $module = $sandbox->getParameter('module');
 
@@ -35,8 +34,10 @@ class ModuleDisabled extends Audit implements RemediableInterface {
     return ($status == 'not installed');
   }
 
-  public function remediate(Sandbox $sandbox)
-  {
+  /**
+   * @inheritdoc
+   */
+  public function remediate(Sandbox $sandbox) {
     $module = $sandbox->getParameter('module');
     $sandbox->drush()->dis($module, '-y');
     return $this->check($sandbox);
