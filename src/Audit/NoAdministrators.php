@@ -57,7 +57,7 @@ class NoAdministrators extends Audit {
     );
 
     // Remove blank rows.
-    $rows = array_filter(explode(PHP_EOL, $rows));
+    $rows = array_filter($rows);
 
     // Format rows into token data.
     $rows = array_map(function ($row) {

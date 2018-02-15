@@ -31,7 +31,7 @@ class BlacklistPermissions extends Audit {
 
     try {
       $output = $sandbox->drush()->sqlQuery('SELECT r.rid, r.name, rp.permission FROM role r INNER JOIN role_permission rp ON rp.rid = r.rid WHERE r.rid != ' . $user_admin_role . ' AND (' . implode(' OR ', $where) . ');');
-      $output = array_filter(explode("\n", $output));
+      $output = array_filter($output);
     }
     catch (\Exception $e) {
       $sandbox->logger()->info(get_class($e) . ': ' . $e->getMessage());
