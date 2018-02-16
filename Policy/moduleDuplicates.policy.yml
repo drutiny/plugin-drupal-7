@@ -12,8 +12,8 @@ remediation: |
   codebase.
 success: No duplicate modules found.
 failure: |
-  Duplicate modules found
+  Duplicate modules found:
 
-  {{# modules}}
-  * {{name}}
-  {{/ modules}}
+  {{#modules}}
+    - {{module}} : {{count}}
+  {{/modules}}
