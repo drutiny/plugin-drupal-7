@@ -18,6 +18,16 @@ class VariableCompare extends Audit {
     $key = $sandbox->getParameter('key');
     $value = $sandbox->getParameter('value');
 
+    if ($required_modules = $sandbox->getParameter('required_modules')) {
+      $required_modules = is_array($required_modules) ? $required_modules : [$required_modules];
+      $info = $sandbox->drush(['format' => 'json'])->pmList();
+      $missing_modules = array_diff($required_modules, array_keys($required_modules));
+
+      if (!empty($missing_modules)) {
+        return Audit::NOT_APPLICABLE;
+      }
+    }
+
     try {
       $vars = $sandbox->drush([
         'format' => 'json'
@@ -76,6 +86,8 @@ class VariableCompare extends Audit {
       case 'identical':
       case '===':
         return $value === $reading;
+      case 'in_array':
+        return in_array($reading, $value);
       case 'equal':
       case '==':
       default:

@@ -23,7 +23,6 @@ class ZenRebuildRegistry extends Audit {
   public function audit(Sandbox $sandbox) {
 
     $output = $sandbox->drush()->sqlQuery("SELECT * FROM {variable} WHERE name LIKE 'theme_%';");
-    $output = explode("\n", $output);
     $themes_with_rebuild_enabled = [];
     foreach ($output as $row) {
       preg_match('/^theme_([a-zA-Z_]+)_settings/', $row, $matches);
