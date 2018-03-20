@@ -6,14 +6,7 @@ use Drutiny\Audit;
 use Drutiny\Sandbox\Sandbox;
 
 /**
- * @Drutiny\Annotation\CheckInfo(
- *  title = "Zen rebuild registry",
- *  description = "The rebuild registry feature is enabled for your theme. This setting is only used during theme development, and can negatively impact site performance.",
- *  remediation = "To disable the rebuild theme registry feature, on your website, open the Themes page at <code>/admin/appearance/settings/[THEMENAME]</code>, and then deselect Rebuild theme registry for each enabled Zen-based theme. Also note that this setting is often hardcoded in theme info file.",
- *  success = "No themes with zen_rebuild_registry enabled.",
- *  failure = "There :prefix <code>:number_of_themes</code> theme:plural (:themes) with zen_rebuild_registry enabled.",
- *  exception = "Could not determine zen_rebuild_registry settings :exception.",
- * )
+ * 
  */
 class ZenRebuildRegistry extends Audit {
 

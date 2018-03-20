@@ -6,15 +6,7 @@ use Drutiny\Audit;
 use Drutiny\Sandbox\Sandbox;
 
 /**
- * @Drutiny\Annotation\CheckInfo(
- *  title = "No administrators",
- *  description = "There should be no administrators other than user ID #1.",
- *  remediation = "Check that no users have the 'administrator' role, other than user ID #1.",
- *  success = "No administrators found, other than user ID #1.",
- *  failure = "Currently there are <code>:count</code> administrator:plural - <ul><li><code>:issues</code></li></ul>",
- *  not_available = "There is no administrator role defined.",
- *  supports_remediation = TRUE,
- * )
+ *
  */
 class NoAdministrators extends Audit {
 
