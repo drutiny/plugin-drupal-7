@@ -7,7 +7,7 @@ use Drutiny\Sandbox\Sandbox;
 use Drutiny\Annotation\Param;
 
 /**
- * Generic module is disabled check.
+ * Check untrusted roles for administrative permissions.
  * @Param(
  *  name = "untrusted_roles",
  *  type = "array",
