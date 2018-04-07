@@ -8,6 +8,11 @@ use Symfony\Component\Yaml\Yaml;
 
 /**
  * Missing modules.
+ * @Param(
+ *  name = 'key',
+ *  description = 'The name of the variable to compare.',
+ *  type = 'string',
+ * )
  */
 class MissingModules extends Audit {
 

@@ -4,9 +4,15 @@ namespace Drutiny\Plugin\Drupal7\Audit;
 
 use Drutiny\Audit;
 use Drutiny\Sandbox\Sandbox;
+use Drutiny\Annotation\Param;
 
 /**
  * Views Pagination
+ * @Param(
+ *  name = 'limit',
+ *  description = 'The maximum number of rows a view can list',
+ *  type = 'integer'
+ * )
  */
 class ViewsPagination extends Audit {
 

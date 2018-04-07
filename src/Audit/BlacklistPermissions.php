@@ -4,9 +4,15 @@ namespace Drutiny\Plugin\Drupal7\Audit;
 
 use Drutiny\Audit;
 use Drutiny\Sandbox\Sandbox;
+use Drutiny\Annotation\Param;
 
 /**
  * BlackList Permissions
+ * @Param(
+ *  name = 'permissions',
+ *  description = 'An array of permissions to ensure are not available to non-administrator roles',
+ *  type = 'array'
+ * )
  */
 class BlacklistPermissions extends Audit {
 

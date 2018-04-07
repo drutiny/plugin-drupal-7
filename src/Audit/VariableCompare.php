@@ -5,9 +5,32 @@ namespace Drutiny\Plugin\Drupal7\Audit;
 use Drutiny\Audit;
 use Drutiny\Sandbox\Sandbox;
 use Drutiny\Driver\DrushFormatException;
+use Drutiny\Annotation\Param;
+use Drutiny\Annotation\Token;
 
 /**
  * Check a configuration is set correctly.
+ * @Param(
+ *  name = 'key',
+ *  description = 'The name of the variable to compare.',
+ *  type = 'string',
+ * )
+ * @Param(
+ *  name = 'value',
+ *  description = 'The value to compare against',
+ *  type = 'mixed',
+ * )
+ * @Param(
+ *  name = 'comp_type',
+ *  description = 'The comparison operator to use',
+ *  type = 'string',
+ *  default = '=='
+ * )
+ * @Token(
+ *  name = 'reading',
+ *  description = 'The value read from the Drupal variables system',
+ *  type = 'mixed'
+ * )
  */
 class VariableCompare extends Audit {
 
