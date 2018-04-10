@@ -9,9 +9,9 @@ use Drutiny\Annotation\Param;
 /**
  * BlackList Permissions
  * @Param(
- *  name = 'permissions',
- *  description = 'An array of permissions to ensure are not available to non-administrator roles',
- *  type = 'array'
+ *  name = "permissions",
+ *  description = "An array of permissions to ensure are not available to non-administrator roles",
+ *  type = "array"
  * )
  */
 class BlacklistPermissions extends Audit {

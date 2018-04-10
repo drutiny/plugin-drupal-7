@@ -9,10 +9,10 @@ use Drutiny\Annotation\Param;
 /**
  * XML sitemap base URL
  * @Param(
- *  name = 'pattern',
- *  description = 'A parseable pattern to use to validate the Base URL.',
- *  type = 'string',
- *  default = '^https?://.+$'
+ *  name = "pattern",
+ *  description = "A parseable pattern to use to validate the Base URL.",
+ *  type = "string",
+ *  default = "^https?://.+$"
  * )
  */
 class XMLSiteMapBaseUrl extends ModuleEnabled {

@@ -10,19 +10,19 @@ use Drutiny\Annotation\Param;
 /**
  * User #1 Locked Down
  * @Param(
- *  name = 'blacklist',
- *  description = 'The usernames of the the uid:1 user that are considered forbidden. Expression maybe a regular expression to match patterns.',
- *  type = 'string'
+ *  name = "blacklist",
+ *  description = "The usernames of the the uid:1 user that are considered forbidden. Expression maybe a regular expression to match patterns.",
+ *  type = "string"
  * )
  * @Param(
- *  name = 'email',
- *  description = 'The email that the uid:1 user should have. If an empty string is provided then this check is omitted.',
- *  type = 'string'
+ *  name = "email",
+ *  description = "The email that the uid:1 user should have. If an empty string is provided then this check is omitted.",
+ *  type = "string"
  * )
  * @Param(
- *  name = 'status',
- *  description = 'Ensures the uid:1 user status reflects the same as this argument. Defaults to active (1).',
- *  type = 'integer',
+ *  name = "status",
+ *  description = "Ensures the uid:1 user status reflects the same as this argument. Defaults to active (1).",
+ *  type = "integer",
  *  default = 1
  * )
  */
