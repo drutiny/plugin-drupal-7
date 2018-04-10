@@ -2,6 +2,7 @@
 
 namespace Drutiny\Plugin\Drupal7\Audit;
 
+use Drutiny\Annotation\Param;
 use Drutiny\Audit;
 use Drutiny\Sandbox\Sandbox;
 use Symfony\Component\Yaml\Yaml;
