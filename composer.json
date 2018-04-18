@@ -13,7 +13,7 @@
         "source": "https://github.com/drutiny/plugin-drupal-7"
     },
     "require": {
-        "drutiny/drutiny": "2.1.*@dev",
+        "drutiny/drutiny": "2.1.*@dev ^2.1.3",
         "symfony/yaml": "^3.2"
     },
     "autoload": {
