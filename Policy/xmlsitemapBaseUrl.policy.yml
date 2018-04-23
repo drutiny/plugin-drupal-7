@@ -1,6 +1,6 @@
 title: "XML sitemap base URL"
 name: Drupal-7:XMLSitemapBaseURL
-class: \Drutiny\Plugin\Drupal7\Audit\XMLSiteMapBaseUrl
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
 tags:
   - Drupal 7
   - Best Practice
@@ -13,12 +13,15 @@ remediation: |
   Set the variable `xmlsitemap_base_url` to be the production www URL. e.g.
   `https://www.example.com`. Note there is no trailing slash.
 success: |
-  XML sitemap base URL is set correctly, currently `{{base_url}}`.
+  XML sitemap base URL is set correctly, currently `{{reading}}`.
 failure: |
-  XML sitemap base URL is not correct, currently it is `{{base_url}}`.
+  XML sitemap base URL is not correct, currently it is `{{reading}}`.
 parameters:
-  pattern:
+  key:
+    default: xmlsitemap_base_url
+  value:
     default: "^https?://.+$"
-    type: string
-    description: |
-      A parseable pattern to use to validate the Base URL.
+  comp_type:
+    default: regex
+  required_modules:
+    default: xmlsitemap

@@ -26,6 +26,18 @@ use Drutiny\Annotation\Token;
  *  type = "string",
  *  default = "=="
  * )
+ * @Param(
+ *  name = "required_modules",
+ *  description = "An optional array of modules required in order to check variables",
+ *  type = "array",
+ *  default = {}
+ * )
+ * @Param(
+ *  name = "default",
+ *  description = "An optional default value if a value is not found",
+ *  type = "mixed",
+ *  default = "no-value-provided"
+ * )
  * @Token(
  *  name = "reading",
  *  description = "The value read from the Drupal variables system",
@@ -44,7 +56,7 @@ class VariableCompare extends Audit {
     if ($required_modules = $sandbox->getParameter('required_modules')) {
       $required_modules = is_array($required_modules) ? $required_modules : [$required_modules];
       $info = $sandbox->drush(['format' => 'json'])->pmList();
-      $missing_modules = array_diff($required_modules, array_keys($required_modules));
+      $missing_modules = array_diff($required_modules, array_keys($info));
 
       if (!empty($missing_modules)) {
         return Audit::NOT_APPLICABLE;
@@ -111,6 +123,8 @@ class VariableCompare extends Audit {
         return $value === $reading;
       case 'in_array':
         return in_array($reading, $value);
+      case 'regex':
+        return preg_match("#${pattern}#", $base_url);
       case 'equal':
       case '==':
       default:
