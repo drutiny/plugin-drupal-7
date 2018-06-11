@@ -5,9 +5,15 @@ namespace Drutiny\Plugin\Drupal7\Audit;
 use Drutiny\Audit;
 use Drutiny\Sandbox\Sandbox;
 use Drutiny\RemediableInterface;
+use Drutiny\Annotation\Param;
 
 /**
  * Generic modules are enabled check.
+ * @Param(
+ *  name = "modules",
+ *  description = "List of modules to check that are enabled.",
+ *  type = "array",
+ * )
  */
 class ModulesEnabled extends Audit implements RemediableInterface {
 
