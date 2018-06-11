@@ -49,7 +49,7 @@ class ModulesEnabled extends Audit implements RemediableInterface {
   public function remediate(Sandbox $sandbox) {
     $modules = $sandbox->getParameter('modules');
     $sandbox->drush()->en(implode(' ', $modules), '-y');
-    return $this->check($sandbox);
+    return $this->audit($sandbox);
   }
 
 }
