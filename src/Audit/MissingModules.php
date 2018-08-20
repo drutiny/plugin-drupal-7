@@ -25,7 +25,7 @@ class MissingModules extends Audit {
       $rows = [];
 
       // Grab all the modules in the system table.
-      $query = db_query("SELECT filename, type, name FROM {system}");
+      $query = db_query("SELECT filename, type, name FROM {system} WHERE type = 'module' AND status = 1");
       // Go through the query and check to see if the module exists in the directory.
       foreach ($query->fetchAll() as $record) {
         if ($record->name == 'default') {
