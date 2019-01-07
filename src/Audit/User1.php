@@ -77,7 +77,7 @@ class User1 extends Audit implements RemediableInterface {
       'email' => $sandbox->getParameter('email')
     ]);
 
-    return $this->check($sandbox);
+    return $this->audit($sandbox);
   }
 
 }

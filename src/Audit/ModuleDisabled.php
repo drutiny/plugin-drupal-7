@@ -46,7 +46,7 @@ class ModuleDisabled extends Audit implements RemediableInterface {
   public function remediate(Sandbox $sandbox) {
     $module = $sandbox->getParameter('module');
     $sandbox->drush()->dis($module, '-y');
-    return $this->check($sandbox);
+    return $this->audit($sandbox);
   }
 
 }
