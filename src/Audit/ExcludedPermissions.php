@@ -7,14 +7,14 @@ use Drutiny\Sandbox\Sandbox;
 use Drutiny\Annotation\Param;
 
 /**
- * BlackList Permissions
+ * Excluded Permissions
  * @Param(
  *  name = "permissions",
- *  description = "An array of permissions to ensure are not available to non-administrator roles",
+ *  description = "An array of permissions to ensure are excluded to non-administrator roles",
  *  type = "array"
  * )
  */
-class BlacklistPermissions extends Audit {
+class ExcludedPermissions extends Audit {
 
   /**
    *

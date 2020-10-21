@@ -10,7 +10,7 @@ use Drutiny\Annotation\Param;
 /**
  * User #1 Locked Down
  * @Param(
- *  name = "blacklist",
+ *  name = "denylist",
  *  description = "The usernames of the the uid:1 user that are considered forbidden. Expression maybe a regular expression to match patterns.",
  *  type = "string"
  * )
@@ -39,7 +39,7 @@ class User1 extends Audit implements RemediableInterface {
     $errors = [];
 
     // Username.
-    $pattern = $sandbox->getParameter('blacklist');
+    $pattern = $sandbox->getParameter('denylist');
     if (preg_match("#${pattern}#i", $user->name)) {
       $errors[] = "Username '$user->name' is too easy to guess.";
     }
