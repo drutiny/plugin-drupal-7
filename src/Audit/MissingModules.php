@@ -53,7 +53,7 @@ class MissingModules extends Audit {
       return "Cannot file {$row['type']} `{$row['name']}`. Expected to be in {$row['filename']}.";
     }, $rows)));
 
-    print_r($sandbox->getParameter('messages'));
+    $sandbox->getParameter('messages');
 
     return empty($rows);
   }
